@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		797F43E92EE24AAE00651B75 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 797F43E82EE24AAE00651B75 /* Networking */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		79BBD9502EE1CDFA00BBF28F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				797F43E92EE24AAE00651B75 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +96,7 @@
 				79BBD93B2EE1CDF700BBF28F /* NubankShortener */,
 				79BBD9522EE1CDFA00BBF28F /* NubankShortenerTests */,
 				79BBD95C2EE1CDFA00BBF28F /* NubankShortenerUITests */,
+				79BBD96E2EE1D8F900BBF28F /* Frameworks */,
 				79BBD93A2EE1CDF700BBF28F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +109,13 @@
 				79BBD9592EE1CDFA00BBF28F /* NubankShortenerUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		79BBD96E2EE1D8F900BBF28F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +138,7 @@
 			);
 			name = NubankShortener;
 			packageProductDependencies = (
+				797F43E82EE24AAE00651B75 /* Networking */,
 			);
 			productName = NubankShortener;
 			productReference = 79BBD9392EE1CDF700BBF28F /* NubankShortener.app */;
@@ -208,6 +222,9 @@
 			);
 			mainGroup = 79BBD9302EE1CDF700BBF28F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				797F43E72EE24AAE00651B75 /* XCLocalSwiftPackageReference "../Networking" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 79BBD93A2EE1CDF700BBF28F /* Products */;
 			projectDirPath = "";
@@ -296,6 +313,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -327,6 +345,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -470,7 +489,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.produto.NubankShortenerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -491,7 +510,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.produto.NubankShortenerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -511,6 +530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.produto.NubankShortenerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -530,6 +550,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.produto.NubankShortenerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -583,6 +604,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		797F43E72EE24AAE00651B75 /* XCLocalSwiftPackageReference "../Networking" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Networking;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		797F43E82EE24AAE00651B75 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 79BBD9312EE1CDF700BBF28F /* Project object */;
 }
