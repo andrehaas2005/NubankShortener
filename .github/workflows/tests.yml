@@ -16,7 +16,9 @@ jobs:
     runs-on: macos-15
 
     steps:
-
+      - name: List simulators
+        run: xcrun simctl list devices
+        
       - name: Checkout repository
         uses: actions/checkout@v4
 
