@@ -1,0 +1,35 @@
+name: iOS Tests
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  tests:
+
+    runs-on: macos-15
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode.app
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+
+      - name: Install gems
+        run: bundle install
+
+      - name: Run Fastlane Tests
+        run: bundle exec fastlane tests
