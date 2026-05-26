@@ -1,11 +1,3 @@
-//
-//  SnapshotConfig.swift
-//  NubankShortener
-//
-//  Created by Andre  Haas on 24/05/26.
-//
-
-
 import UIKit
 import SnapshotTesting
 
@@ -25,7 +17,7 @@ enum SnapshotConfig {
     file: StaticString = #file,
     testName: String = #function,
     line: UInt = #line,
-    record: Bool = false
+    record: SnapshotTestingConfiguration.Record = .never
   ) {
     SnapshotTesting.assertSnapshot(
       of: vc,
@@ -44,7 +36,7 @@ enum SnapshotConfig {
     file: StaticString = #file,
     testName: String = #function,
     line: UInt = #line,
-    record: Bool = false
+    record: SnapshotTestingConfiguration.Record = .never
   ) {
     
     // É necessário forçar o layout antes do snapshot

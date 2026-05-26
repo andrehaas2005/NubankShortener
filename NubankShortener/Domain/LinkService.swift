@@ -2,12 +2,6 @@ import Foundation
 import Core
 import Networking
 
-public protocol LinkServiceProtocol {
-  func shorten(url: String, completion: @escaping (Result<AliasResponse, NetworkError>) -> Void)
-  func fetchOriginal(alias: String, completion: @escaping (Result<UrlResponse, NetworkError>) -> Void)
-}
-
-
 final class LinkService: LinkServiceProtocol {
   private let client: NetworkClientProtocol
   

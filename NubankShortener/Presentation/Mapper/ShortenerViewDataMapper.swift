@@ -1,7 +1,7 @@
 import Foundation
 import Core
 
-/// ADAPTER:
+/// DATA MAPPER:
 /// Conversões, mapeamentos e formatações.
 /// Ele pega os modelos do domínio/engine e transforma em algo
 /// mais adequado para exibição, persistência ou fluxo interno.

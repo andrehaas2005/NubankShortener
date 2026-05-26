@@ -1,11 +1,3 @@
-//
-//  Router.swift
-//  NubankShortener
-//
-//  Created by Andre  Haas on 05/12/25.
-//
-
-
 import UIKit
 
 /// Abstração da navegação.

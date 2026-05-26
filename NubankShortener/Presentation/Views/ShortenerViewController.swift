@@ -6,6 +6,7 @@ final class ShortenerViewController: UIViewController {
   // MARK: - Dependencies
   private let viewModel: ShortenerViewModel
   private let delegate: ShortenerCoordinatorDelegate
+  
   // MARK: - UI Components
   private let headerView = ShortenerHeaderView()
   private let inputViewComponent = ShortenerInputView()

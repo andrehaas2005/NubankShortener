@@ -3,12 +3,6 @@ import Core
 import Foundation
 import Networking
 
-
-
-public protocol ShortenerViewModelProtocol: AnyObject {
-  var screenState: Bindable<ShortenerStates?> { get }
-}
-
 final class ShortenerViewModel: ShortenerViewModelProtocol {
   
   // MARK: - Dependencies

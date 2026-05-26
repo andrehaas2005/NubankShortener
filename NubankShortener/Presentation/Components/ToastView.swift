@@ -1,11 +1,3 @@
-//
-//  ToastView.swift
-//  NubankShortener
-//
-//  Created by Andre  Haas on 25/05/26.
-//
-
-
 import UIKit
 
 final class ToastView: UIView {
