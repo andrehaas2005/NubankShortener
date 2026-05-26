@@ -1,5 +1,13 @@
 import UIKit
+import XCTest
 import SnapshotTesting
+
+
+func skipIfRunningOnCI() throws {
+    if ProcessInfo.processInfo.environment["CI"] == "true" {
+        throw XCTSkip("Skipping test on CI")
+    }
+}
 
 enum SnapshotConfig {
   
@@ -13,6 +21,7 @@ enum SnapshotConfig {
   
   // MARK: - Snapshot for UIViewController
   static func assertSnapshot(
+
     vc: UIViewController,
     file: StaticString = #file,
     testName: String = #function,

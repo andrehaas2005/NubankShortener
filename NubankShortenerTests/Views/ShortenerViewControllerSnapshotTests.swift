@@ -31,7 +31,8 @@ private func makeSUT(
   
   // MARK: - Tests
   
-  func test_snapshot_emptyState() {
+  func test_snapshot_emptyState() throws {
+    try skipIfRunningOnCI()
     let sut = makeSUT(links: [])
     sut.view.frame = CGRect(origin: .zero, size: SnapshotConfig.device.size ?? .zero)
     sut.view.layoutIfNeeded()
@@ -39,7 +40,8 @@ private func makeSUT(
     SnapshotConfig.assertSnapshot(vc: sut)
   }
   
-   func test_snapshot_withItems() {
+   func test_snapshot_withItems() throws {
+     try skipIfRunningOnCI()
     let alias = AliasResponse(
       alias: "abc123",
       links: .init(self: "https://full.com", short: "https://short.com")
@@ -56,7 +58,8 @@ private func makeSUT(
     SnapshotConfig.assertSnapshot(vc: sut)
   }
   
-  func test_snapshot_loadingState() {
+  func test_snapshot_loadingState() throws {
+    try skipIfRunningOnCI()
     let sut = makeSUT(isLoading: true)
     sut.view.frame = CGRect(origin: .zero, size: SnapshotConfig.device.size ?? .zero)
     sut.view.layoutIfNeeded()

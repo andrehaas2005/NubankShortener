@@ -38,7 +38,7 @@ final class ShortenerListCell: UITableViewCell {
   private func setup() {
     backgroundColor = .clear
     selectionStyle = .none
-    
+    accessibilityIdentifier = "ShortenerCell"
     contentView.addSubview(cardView)
     cardView.addSubview(aliasLabel)
     cardView.addSubview(shortUrlLabel)

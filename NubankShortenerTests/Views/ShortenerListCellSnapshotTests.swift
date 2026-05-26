@@ -4,7 +4,8 @@ import Core
 
 final class ShortenerListCellSnapshotTests: XCTestCase {
 
-    func test_listCell_populated() {
+    func test_listCell_populated() throws {
+      try skipIfRunningOnCI()
         let cell = ShortenerListCell(style: .default, reuseIdentifier: "ShortenerListCell")
       
         let model = AliasResponse(

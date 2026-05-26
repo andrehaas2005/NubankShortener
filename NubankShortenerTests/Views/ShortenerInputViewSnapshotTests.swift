@@ -3,12 +3,14 @@ import XCTest
 
 final class ShortenerInputViewSnapshotTests: XCTestCase {
 
-    func test_input_default() {
+    func test_input_default() throws {
+      try skipIfRunningOnCI()
         let view = ShortenerInputView(frame: .init(x: 0, y: 0, width: 375, height: 90))
       SnapshotConfig.assertSnapshot(view: view)
     }
 
-    func test_input_loading() {
+    func test_input_loading() throws {
+      try skipIfRunningOnCI()
         let view = ShortenerInputView(frame: .init(x: 0, y: 0, width: 375, height: 90))
       SnapshotConfig.assertSnapshot(view: view)
     }

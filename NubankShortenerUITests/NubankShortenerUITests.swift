@@ -14,6 +14,24 @@ final class NubankShortenerUITests: XCTestCase {
   override func tearDownWithError() throws {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
   }
+  func test_validURL_shouldDisplayHistoryItem() {
+
+      let app = XCUIApplication()
+      app.launch()
+    app/*@START_MENU_TOKEN@*/.otherElements["CardView"]/*[[".otherElements",".containing(.staticText, identifier: \"Encurtar\")",".containing(.button, identifier: \"PrimaryButton\")",".otherElements[\"CardView\"]"],[[[-1,3],[-1,0,1]],[[-1,3],[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.firstMatch.tap()
+    
+      let textField = app.textFields["urlTextField"]
+      textField.tap()
+      textField.typeText("https://google.com")
+
+      app.buttons["PrimaryButton"].tap()
+
+      let historyCell = app.cells["ShortenerCell"]
+
+      XCTAssertTrue(
+          historyCell.waitForExistence(timeout: 10)
+      )
+  }
 
   func test_invalidURL_shouldShowErrorAlert() {
     
