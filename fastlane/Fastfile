@@ -10,7 +10,6 @@ platform :ios do
       clean: true,
       devices: ["iPhone 13 Pro Max"],
       disable_concurrent_testing: true
-      skip_package_dependencies_resolution: true
     )
   end
 
