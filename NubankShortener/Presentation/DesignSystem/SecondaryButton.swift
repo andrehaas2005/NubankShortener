@@ -19,7 +19,7 @@ final class SecondaryButton: UIButton {
     accessibilityIdentifier = "SecondaryButton"
     isAccessibilityElement = true
     setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
-    tintColor = Theme.Color.primary
+    tintColor = Theme.Color.principalColor
     translatesAutoresizingMaskIntoConstraints = false
     
   }

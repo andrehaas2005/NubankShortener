@@ -2,13 +2,13 @@ import UIKit
 
 enum Theme {
   struct Color {
-    static var primary: UIColor { UIColor(named: "Primary") ?? UIColor(red: 110/255, green: 0/255, blue: 255/255, alpha: 1) }
-    static var primaryVariant: UIColor { UIColor(named: "PrimaryVariant") ?? UIColor(red: 90/255, green: 0/255, blue: 220/255, alpha: 1) }
+    static var principalColor: UIColor { UIColor(red: 110/255, green: 0/255, blue: 255/255, alpha: 1) }
+    static var principalVariant: UIColor { UIColor(red: 90/255, green: 0/255, blue: 220/255, alpha: 1) }
     static var background: UIColor { UIColor(named: "Background") ?? UIColor(red: 158/255, green: 191/255, blue: 214/255, alpha: 1) }
     static var surface: UIColor { UIColor(named: "Surface") ?? UIColor(white: 0.98, alpha: 1) }
     static var text: UIColor { UIColor.label }
     static var muted: UIColor { UIColor.secondaryLabel }
-    static var accent: UIColor { primary }
+    static var accent: UIColor { principalColor }
     static var dark: UIColor {.black}
   }
   // Tokens
@@ -45,7 +45,7 @@ enum Theme {
   // Standard gradient used as background or button
   static func primaryGradientLayer(bounds: CGRect) -> CAGradientLayer {
     let g = CAGradientLayer()
-    g.colors = [Color.primaryVariant.cgColor, Color.primary.cgColor]
+    g.colors = [Color.principalVariant.cgColor, Color.principalColor.cgColor]
     g.startPoint = CGPoint(x: 0, y: 0)
     g.endPoint = CGPoint(x: 1, y: 1)
     g.frame = bounds

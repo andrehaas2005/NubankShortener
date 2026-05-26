@@ -16,7 +16,7 @@ final class CaptionLabel: UILabel {
   
   private func setup() {
     text = textLabel
-    textColor = Theme.Color.primary
+    textColor = Theme.Color.principalColor
     font = Theme.Typography.caption
     lineBreakMode = .byCharWrapping
     accessibilityIdentifier = "CaptionLabel"

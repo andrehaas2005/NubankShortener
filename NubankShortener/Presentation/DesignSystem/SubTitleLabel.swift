@@ -16,7 +16,7 @@ final class SubTitleLabel: UILabel {
   
   private func setup() {
     text = textLabel
-    textColor = Theme.Color.primary
+    textColor = Theme.Color.principalColor
     font = Theme.Typography.subtitle
     translatesAutoresizingMaskIntoConstraints = false
     numberOfLines = 0

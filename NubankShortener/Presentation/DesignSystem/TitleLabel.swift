@@ -16,7 +16,7 @@ final class TitleLabel: UILabel {
   
   private func setup() {
     text = textLabel
-    textColor = Theme.Color.primary
+    textColor = Theme.Color.principalColor
     font = Theme.Typography.title
     translatesAutoresizingMaskIntoConstraints = false
     numberOfLines = 0
