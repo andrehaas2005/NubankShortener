@@ -7,7 +7,25 @@
 		<key>NubankShortener.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>79BBD9382EE1CDF700BBF28F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79BBD94E2EE1CDFA00BBF28F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79BBD9582EE1CDFA00BBF28F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

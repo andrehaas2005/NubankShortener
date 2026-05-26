@@ -1,38 +1,67 @@
-import Foundation
+import Combine
 import Core
-internal import Combine
+import Foundation
+import Networking
 
 
-@MainActor
-final class ShortenerViewModel {
-  private let service: LinkServiceProtocol
-  private let repository: LinkRepository
+
+public protocol ShortenerViewModelProtocol: AnyObject {
+  var screenState: Bindable<ShortenerStates?> { get }
+}
+
+final class ShortenerViewModel: ShortenerViewModelProtocol {
   
-  @Published private(set) var isLoading = false
-  @Published private(set) var links: [AliasResponse] = []
-  @Published private(set) var errorMessage: String?
+  // MARK: - Dependencies
+  private let repository: LinkServiceRepository
+  private let adapter: ShortenerViewDataMapperDelegate
+  var screenState: Core.Bindable<ShortenerStates?> = .init(.idle)
   
-  init(service: LinkServiceProtocol, repository: LinkRepository) {
-    self.service = service
+  // MARK: - Init
+  init(
+    repository: LinkServiceRepository,
+    adapter: ShortenerViewDataMapperDelegate
+  ) {
     self.repository = repository
-    self.links = repository.all()
+    self.adapter = adapter
+    
+    // initial load from repository
+    screenState.value = .success(repository.all())
   }
   
-  func shorten(_ text: String) async {
-    guard Validators.isValidURL(text) else {
-      errorMessage = "URL inválida"
+  // MARK: - Public actions
+  
+  /// Encurta a URL informada.
+  /// Valida, persiste e atualiza estado.
+  func shorten(_ urlString: String) {
+    
+    // validation
+    guard Validators.isValidURL(urlString) else {
+      screenState.value = .error("URL inválida. Verifique o formato.")
       return
     }
     
-    isLoading = true
-    defer { isLoading = false }
-    
-    do {
-      let response = try await service.shorten(url: text)
-      repository.save(response)
-      links = repository.all()
-    } catch {
-      errorMessage = "Erro ao encurtar URL"
+    screenState.value = .loading(true)
+    repository.shorten(url: urlString) { [weak self] result in
+      guard let self else { return }
+      DispatchQueue.main.async {
+        self.screenState.value = .loading(false)
+        switch result {
+        case .success(let alias):
+          self.handlerSuccess(alias)
+        case .failure(let error):
+          self.screenState.value = .error(error.descript())
+        }
+      }
     }
+  }
+  
+  private func handlerSuccess(_ alias: AliasResponse) {
+    self.repository.save(alias)
+    self.screenState.value = .success(self.repository.all())
+  }
+  
+  /// Atualiza a lista com os dados do repositório.
+  func refresh() {
+    self.screenState.value = .success(self.repository.all())
   }
 }

@@ -1,27 +1,29 @@
-//
-//  ShortenerBuilder.swift
-//  NubankShortener
-//
-//  Created by Andre  Haas on 04/12/25.
-//
-
-
 import UIKit
+import Core
 
-final class ShortenerBuilder: ModuleBuilder {
-
-    private let container: DIContainer
-
-    init(container: DIContainer) {
-        self.container = container
-    }
-
-    func build() -> ShortenerViewController {
-        let viewModel = ShortenerViewModel(
-            service: container.makeLinkService(),
-            repository: container.makeRepository()
-        )
-
-        return ShortenerViewController(viewModel: viewModel)
-    }
+/// Builder responsável por montar o módulo completo da Feature Shortener.
+/// Ele garante que todas as dependências estão corretas e conectadas.
+final class ShortenerBuilder: ModuleBuilderProtocol {
+  
+  private let container: DIContainer
+  private let delegate: ShortenerCoordinatorDelegate
+  init(container: DIContainer,
+       delegate: ShortenerCoordinatorDelegate) {
+    self.container = container
+    self.delegate = delegate
+  }
+  
+  
+  func build() -> ShortenerViewController {
+    let repository = container.makeRepository()
+    let adapter = ShortenerViewDataMapper()
+    
+    let viewModel = ShortenerViewModel(
+      repository: repository,
+      adapter: adapter
+    )
+    
+    let viewController = ShortenerViewController(viewModel: viewModel, delegate: delegate)
+    return viewController
+  }
 }

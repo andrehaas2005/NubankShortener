@@ -3,8 +3,8 @@ import Core
 import Networking
 
 public protocol LinkServiceProtocol {
-  func shorten(url: String) async throws -> AliasResponse
-  func fetchOriginal(alias: String) async throws -> UrlResponse
+  func shorten(url: String, completion: @escaping (Result<AliasResponse, NetworkError>) -> Void)
+  func fetchOriginal(alias: String, completion: @escaping (Result<UrlResponse, NetworkError>) -> Void)
 }
 
 
@@ -15,14 +15,11 @@ final class LinkService: LinkServiceProtocol {
     self.client = client
   }
   
-  
-  func shorten(url: String) async throws -> AliasResponse {
-    struct Body: Encodable { let url: String }
-    return try await client.post("/api/alias", body: Body(url: url))
+  func shorten(url: String, completion: @escaping (Result<Core.AliasResponse, NetworkError>) -> Void) {
+    client.post("/api/alias", body: Body(url: url)) { completion($0) }
   }
   
-  
-  func fetchOriginal(alias: String) async throws -> UrlResponse {
-    return try await client.get("/api/alias/\(alias)")
+  func fetchOriginal(alias: String, completion: @escaping (Result<Core.UrlResponse, Networking.NetworkError>) -> Void) {
+    client.get("/api/alias/\(alias)") { completion($0) }
   }
 }

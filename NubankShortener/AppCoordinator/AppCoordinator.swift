@@ -1,26 +1,25 @@
 import UIKit
 
-final class AppCoordinator {
+final class AppCoordinator: Coordinator {
 
-    private let window: UIWindow
+    let router: Router
     private let container: DIContainer
     private var childCoordinator: Coordinator?
 
     init(window: UIWindow, container: DIContainer) {
-        self.window = window
+        let navigation = UINavigationController()
+        navigation.navigationBar.prefersLargeTitles = true
+
+        self.router = DefaultRouter(navigationController: navigation)
         self.container = container
+
+        window.rootViewController = navigation
+        window.makeKeyAndVisible()
     }
 
     func start() {
-        let coordinator = ShortenerCoordinator(
-            navigationController: UINavigationController(),
-            container: container
-        )
-
-        childCoordinator = coordinator
-        coordinator.start()
-
-        window.rootViewController = coordinator.navigationController
-        window.makeKeyAndVisible()
+        let shortenerCoordinator = ShortenerCoordinator(router: router, container: container)
+        childCoordinator = shortenerCoordinator
+        shortenerCoordinator.start()
     }
 }

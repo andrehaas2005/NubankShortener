@@ -1,22 +1,42 @@
 import UIKit
+import Core
 
-final class ShortenerCoordinator: Coordinator {
+/// Coordinator responsável pelo fluxo principal da feature de encurtar links.
+final class ShortenerCoordinator: ShortenerCoordinatorDelegate {
   
-  let navigationController: UINavigationController
+  let router: Router
   private let container: DIContainer
   
-  init(
-    navigationController: UINavigationController,
-    container: DIContainer
-  ) {
-    self.navigationController = navigationController
+  init(router: Router, container: DIContainer = DIContainer()) {
+    self.router = router
     self.container = container
-    navigationController.navigationBar.prefersLargeTitles = true
   }
   
   func start() {
-    let builder = ShortenerBuilder(container: container)
+    let container = DIContainer()
+    let builder = ShortenerBuilder(container: container, delegate: self)
     let vc = builder.build()
-    navigationController.pushViewController(vc, animated: false)
+    
+    router.setRoot(vc, animated: false)
+  }
+  
+  func openShortURL(_ alias: AliasResponse) {
+    guard let url = URL(string: alias.links.short) else { return }
+    UIApplication.shared.open(url)
+  }
+  
+  func showToast(in controller: UIViewController) {
+    router.showToast(viewController: controller, "Link copiado!")
+  }
+  
+  func showError(message: String) {
+    let alert = UIAlertController(
+      title: "Ops",
+      message: message,
+      preferredStyle: .alert
+    )
+    alert.addAction(UIAlertAction(title: "OK", style: .default))
+    router.present(alert, animated: true)
   }
 }
+

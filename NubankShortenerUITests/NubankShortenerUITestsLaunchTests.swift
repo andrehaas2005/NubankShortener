@@ -1,10 +1,3 @@
-//
-//  NubankShortenerUITestsLaunchTests.swift
-//  NubankShortenerUITests
-//
-//  Created by Andre  Haas on 04/12/25.
-//
-
 import XCTest
 
 final class NubankShortenerUITestsLaunchTests: XCTestCase {
