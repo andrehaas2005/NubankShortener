@@ -27,7 +27,12 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-          bundler-cache: true
 
+      - name: Install latest bundler
+        run: gem install bundler -v 2.5.22
+      
+      - name: Install gems
+        run: bundle _2.5.22_ install
+      
       - name: Run Fastlane Tests
-        run: bundle exec fastlane tests
+        run: bundle _2.5.22_ exec fastlane tests
