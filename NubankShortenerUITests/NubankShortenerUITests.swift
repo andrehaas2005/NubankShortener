@@ -52,10 +52,10 @@ final class NubankShortenerUITests: XCTestCase {
     
     shortenButton.tap()
     
-    let alert = app.alerts["Erro"]
+    let alert = app.alerts["Ops"]
 
-    XCTAssertTrue(app.staticTexts["URL inválida"].waitForExistence(timeout: 2))
-    XCTAssertTrue(app.staticTexts["URL inválida"].exists)
+    XCTAssertTrue(alert.staticTexts["URL inválida. Verifique o formato."].exists)
+    XCTAssertTrue(alert.staticTexts["URL inválida. Verifique o formato."].waitForExistence(timeout: 10))
     
     alert.buttons["OK"].tap()
   }
