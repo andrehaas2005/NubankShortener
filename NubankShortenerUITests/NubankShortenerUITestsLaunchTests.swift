@@ -7,7 +7,7 @@ final class NubankShortenerUITestsLaunchTests: XCTestCase {
     }
 
     override func setUpWithError() throws {
-        continueAfterFailure = false
+        continueAfterFailure = true
     }
 
     @MainActor

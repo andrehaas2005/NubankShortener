@@ -16,9 +16,12 @@ final class SubTitleLabel: UILabel {
   
   private func setup() {
     text = textLabel
-    textColor = Theme.Color.text
+    textColor = Theme.Color.primary
     font = Theme.Typography.subtitle
     translatesAutoresizingMaskIntoConstraints = false
     numberOfLines = 0
+    accessibilityIdentifier = "SubTitleLabel"
+    accessibilityLabel = textLabel
+    accessibilityTraits = .staticText
   }
 }

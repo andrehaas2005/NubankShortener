@@ -9,11 +9,17 @@ enum Theme {
     static var text: UIColor { UIColor.label }
     static var muted: UIColor { UIColor.secondaryLabel }
     static var accent: UIColor { primary }
+    static var dark: UIColor {.black}
   }
   // Tokens
   struct Radius {
     static let card: CGFloat = 16
     static let small: CGFloat = 8
+  }
+  
+  struct Size {
+    static let card: CGFloat = 32
+    static let cell: CGFloat = 95
   }
   
   struct Spacing {

@@ -14,6 +14,10 @@ final class SecondaryButton: UIButton {
   }
   
   private func setup() {
+    accessibilityHint = "Toque para Copiar"
+    accessibilityTraits = .button
+    accessibilityIdentifier = "SecondaryButton"
+    isAccessibilityElement = true
     setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
     tintColor = Theme.Color.primary
     translatesAutoresizingMaskIntoConstraints = false

@@ -10,6 +10,8 @@ final class ShortenerInputView: UIView {
     tf.clearButtonMode = .whileEditing
     tf.autocapitalizationType = .none
     tf.keyboardType = .URL
+    tf.textColor = Theme.Color.dark
+    tf.accessibilityIdentifier = "urlTextField"
     tf.translatesAutoresizingMaskIntoConstraints = false
     return tf
   }()

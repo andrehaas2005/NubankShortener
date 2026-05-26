@@ -16,9 +16,12 @@ final class TitleLabel: UILabel {
   
   private func setup() {
     text = textLabel
-    textColor = Theme.Color.text
+    textColor = Theme.Color.primary
     font = Theme.Typography.title
     translatesAutoresizingMaskIntoConstraints = false
     numberOfLines = 0
+    accessibilityIdentifier = "TitleLabel"
+    accessibilityLabel = textLabel
+    accessibilityTraits = .staticText
   }
 }

@@ -22,6 +22,10 @@ final class PrimaryButton: UIButton {
   
   private func setup() {
     translatesAutoresizingMaskIntoConstraints = false
+    accessibilityHint = "Toque para executar"
+    accessibilityTraits = .button
+    accessibilityIdentifier = "PrimaryButton"
+    isAccessibilityElement = true
     layer.cornerRadius = Theme.Radius.card
     clipsToBounds = true
     titleLabel?.font = Theme.Typography.subtitle

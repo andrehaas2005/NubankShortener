@@ -78,6 +78,7 @@ final class ShortenerViewController: UIViewController {
           self.links = list
           self.listView.tableView.reloadData()
           self.emptyStateView.isHidden = !list.isEmpty
+          
         }
       case .error(let error):
         self.delegate.showError(message: error)
@@ -132,7 +133,7 @@ extension ShortenerViewController: UITableViewDataSource {
 extension ShortenerViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    92
+    Theme.Size.cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

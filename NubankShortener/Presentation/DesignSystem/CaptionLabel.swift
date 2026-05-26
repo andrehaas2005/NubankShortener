@@ -19,6 +19,9 @@ final class CaptionLabel: UILabel {
     textColor = Theme.Color.primary
     font = Theme.Typography.caption
     lineBreakMode = .byCharWrapping
+    accessibilityIdentifier = "CaptionLabel"
+    accessibilityLabel = textLabel
+    accessibilityTraits = .staticText
     translatesAutoresizingMaskIntoConstraints = false
     numberOfLines = 0
   }

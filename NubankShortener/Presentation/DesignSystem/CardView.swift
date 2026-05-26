@@ -14,12 +14,14 @@ final class CardView: UIView {
   
   private func configure() {
     translatesAutoresizingMaskIntoConstraints = false
+    isAccessibilityElement = true
+    accessibilityIdentifier = "CardView"
     backgroundColor = Theme.Color.surface
     layer.cornerRadius = Theme.Radius.card
     layer.masksToBounds = false
     layer.shadowColor = UIColor.black.cgColor
     layer.shadowOpacity = 0.04
     layer.shadowOffset = CGSize(width: 0, height: 6)
-    layer.shadowRadius = 16
+    layer.shadowRadius = Theme.Radius.small
   }
 }

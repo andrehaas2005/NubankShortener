@@ -4,7 +4,7 @@ import SnapshotTesting
 enum SnapshotConfig {
   
   /// Device padrão
-  static let device = ViewImageConfig.iPhone13ProMax
+  static let device = ViewImageConfig.iPhone13Pro
   
   /// Caminho onde salvar os snapshots
   static var snapshotPath: String {

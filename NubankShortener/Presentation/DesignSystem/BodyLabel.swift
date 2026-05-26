@@ -16,8 +16,11 @@ final class BodyLabel: UILabel {
   
   private func setup() {
     text = textLabel
-    textColor = Theme.Color.text
+    textColor = Theme.Color.dark
     font = Theme.Typography.body
+    accessibilityIdentifier = "BodyLabel"
+    accessibilityLabel = textLabel
+    accessibilityTraits = .staticText
     translatesAutoresizingMaskIntoConstraints = false
     numberOfLines = 0
   }
