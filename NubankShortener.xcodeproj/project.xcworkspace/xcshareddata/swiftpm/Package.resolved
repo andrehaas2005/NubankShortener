@@ -1,5 +1,5 @@
 {
-  "originHash" : "b8eca45c13dfa7d5603437057eba3a06975601c49bca4af4cbf1bf9e1e6b122c",
+  "originHash" : "2488a4e52c91b59653672738a944ab08ffc927640c6b66e8d8f9cfa6c9c4cd0d",
   "pins" : [
     {
       "identity" : "core",
@@ -7,7 +7,7 @@
       "location" : "https://github.com/andrehaas2005/Core.git",
       "state" : {
         "branch" : "main",
-        "revision" : "ff576bf896e05634deae92cff2bef9211040607c"
+        "revision" : "6cc9cb84aadcf2d3c7309b07219f02a549656b8d"
       }
     },
     {
@@ -16,7 +16,7 @@
       "location" : "https://github.com/andrehaas2005/Networking.git",
       "state" : {
         "branch" : "main",
-        "revision" : "3b7e449f2f340ea36b79756ba1b226cd0f23570b"
+        "revision" : "dff5f966a0b6b8179ea5fba21f1ed59112dc0974"
       }
     },
     {
