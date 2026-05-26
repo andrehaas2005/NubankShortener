@@ -13,4 +13,3 @@ final class ShortenerHeaderViewSnapshotTests: XCTestCase {
         SnapshotConfig.assertSnapshot(view: view)
     }
 }
-
