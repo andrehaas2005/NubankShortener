@@ -1,6 +1,24 @@
 {
-  "originHash" : "61d4a39ffd5f32b5f6cc371735de1379d2847ba383e18c0ab86f5a695dd80043",
+  "originHash" : "b8eca45c13dfa7d5603437057eba3a06975601c49bca4af4cbf1bf9e1e6b122c",
   "pins" : [
+    {
+      "identity" : "core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/andrehaas2005/Core.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ff576bf896e05634deae92cff2bef9211040607c"
+      }
+    },
+    {
+      "identity" : "networking",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/andrehaas2005/Networking.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "3b7e449f2f340ea36b79756ba1b226cd0f23570b"
+      }
+    },
     {
       "identity" : "swift-custom-dump",
       "kind" : "remoteSourceControl",

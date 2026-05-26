@@ -11,6 +11,7 @@
 		797BC1402FC3B937002FC604 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 797BC13F2FC3B937002FC604 /* SnapshotTesting */; };
 		797BC1422FC3B937002FC604 /* SnapshotTestingCustomDump in Frameworks */ = {isa = PBXBuildFile; productRef = 797BC1412FC3B937002FC604 /* SnapshotTestingCustomDump */; };
 		797F43E92EE24AAE00651B75 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 797F43E82EE24AAE00651B75 /* Networking */; };
+		79FE30522FC54419002ED5F8 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 79FE30512FC54419002ED5F8 /* Networking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79FE30522FC54419002ED5F8 /* Networking in Frameworks */,
 				797F43E92EE24AAE00651B75 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +147,7 @@
 			name = NubankShortener;
 			packageProductDependencies = (
 				797F43E82EE24AAE00651B75 /* Networking */,
+				79FE30512FC54419002ED5F8 /* Networking */,
 			);
 			productName = NubankShortener;
 			productReference = 79BBD9392EE1CDF700BBF28F /* NubankShortener.app */;
@@ -232,8 +235,8 @@
 			mainGroup = 79BBD9302EE1CDF700BBF28F;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				797F43E72EE24AAE00651B75 /* XCLocalSwiftPackageReference "../Networking" */,
 				797BC13C2FC3B937002FC604 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+				79FE30502FC54419002ED5F8 /* XCRemoteSwiftPackageReference "Networking" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 79BBD93A2EE1CDF700BBF28F /* Products */;
@@ -617,13 +620,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		797F43E72EE24AAE00651B75 /* XCLocalSwiftPackageReference "../Networking" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Networking;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		797BC13C2FC3B937002FC604 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -631,6 +627,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.19.2;
+			};
+		};
+		79FE30502FC54419002ED5F8 /* XCRemoteSwiftPackageReference "Networking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/andrehaas2005/Networking.git";
+			requirement = {
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -653,6 +657,11 @@
 		};
 		797F43E82EE24AAE00651B75 /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+		79FE30512FC54419002ED5F8 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79FE30502FC54419002ED5F8 /* XCRemoteSwiftPackageReference "Networking" */;
 			productName = Networking;
 		};
 /* End XCSwiftPackageProductDependency section */
