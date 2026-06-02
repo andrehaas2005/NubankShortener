@@ -1,4 +1,3 @@
-import Core
 
 public enum ShortenerStates: Equatable {
   case idle

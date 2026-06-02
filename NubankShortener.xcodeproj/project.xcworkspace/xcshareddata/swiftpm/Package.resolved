@@ -7,7 +7,7 @@
       "location" : "https://github.com/andrehaas2005/Core.git",
       "state" : {
         "branch" : "main",
-        "revision" : "6cc9cb84aadcf2d3c7309b07219f02a549656b8d"
+        "revision" : "1ddbb11f05dc1499f1da4c34c128c184477803ff"
       }
     },
     {
@@ -16,7 +16,7 @@
       "location" : "https://github.com/andrehaas2005/Networking.git",
       "state" : {
         "branch" : "main",
-        "revision" : "dff5f966a0b6b8179ea5fba21f1ed59112dc0974"
+        "revision" : "6b4b3b0172891b505ae38a5734c24db4f4110e54"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-custom-dump",
       "state" : {
-        "revision" : "06c57924455064182d6b217f06ebc05d00cb2990",
-        "version" : "1.5.0"
+        "revision" : "b9b59eb58c946236d6f16305c576ad194c36444e",
+        "version" : "1.6.0"
       }
     },
     {
