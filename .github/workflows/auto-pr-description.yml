@@ -11,7 +11,7 @@ jobs:
       pull-requests: write
     steps:
       - name: PR Agent Action
-        uses: CodiumAI/pr-agent@main
+        uses: The-PR-Agent/pr-agent@main
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
