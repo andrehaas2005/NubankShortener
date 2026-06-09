@@ -10,10 +10,27 @@ final class DIContainer {
     func makeNetworkClient() -> NetworkClientProtocol {
         NetworkClient(baseURL: baseURL)
     }
+  
+  func makeLocalStorage() -> LocalStorageProtocol {
+    LocalStorage()
+  }
+  
+  func makePendingStorage() -> PendingStorageProtocol {
+    PendingStorage()
+  }
+  
+  func makePendingQueueManager() -> PendingQueueManagerProtocol {
+    let storage = makePendingStorage()
+    return PedingQueueManager(storage: storage)
+  }
 
     // MARK: - Repository
     func makeRepository() -> LinkServiceRepository {
       let service = LinkService(client: makeNetworkClient())
-      return ShortenerRepository(service: service)
+      let localStorage = makeLocalStorage()
+      let pendingManager = makePendingQueueManager()
+      return ShortenerRepository(service: service,
+                                 storage: localStorage,
+                                 pendingQueue: pendingManager)
     }
 }

@@ -8,11 +8,13 @@ final class ShortenerRepositoryTests: XCTestCase {
   private var sut: LinkServiceRepository!
   private let alias = AliasResponse.fixed()
   private var service: LinkServiceRepositoryMock!
+  private var storage: LocalStorageProtocol!
   
   override func setUp() {
     super.setUp()
     service = LinkServiceRepositoryMock()
-    sut = ShortenerRepository(service: service)
+    storage = MockStorage()
+    sut = ShortenerRepository(service: service, storage: storage)
   }
   
   override func tearDown() {
@@ -54,6 +56,24 @@ final class ShortenerRepositoryTests: XCTestCase {
     XCTAssertEqual(list.last?.alias, "abc123")
   }
   
+  func test_two_itens_different_alias_keepOrder() {
+    let alias2 = AliasResponse(
+      alias: "xyz789",
+      links: .init(self: "a", short: "b")
+    )
+    
+    sut.save(alias2)
+    sut.save(alias)
+    let aliasNew = AliasResponse(
+      alias: "abcd1234",
+      links: .init(self: "c", short: "primeiro")
+    )
+    
+    sut.save(alias)
+    
+    let list = sut.all()
+    XCTAssertTrue(list.first == aliasNew)
+  }
   // MARK: - CLEAR
   
   func test_clear_removesAllItems() {

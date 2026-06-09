@@ -71,7 +71,7 @@ private func makeSUT(
 class ShortenerCoordinatorMock: ShortenerCoordinatorDelegate {
   var router: any NubankShortener.Router = DefaultRouterMock()
   
-  func openShortURL(_ alias: Core.AliasResponse) {
+  func openShortURL(_ alias: AliasResponse) {
     
   }
   

@@ -1,5 +1,5 @@
 {
-  "originHash" : "2488a4e52c91b59653672738a944ab08ffc927640c6b66e8d8f9cfa6c9c4cd0d",
+  "originHash" : "b2b2f0a73818a53c091186075ca59a0d440f62753ca8d38af5dd478f5616aa35",
   "pins" : [
     {
       "identity" : "core",
@@ -8,15 +8,6 @@
       "state" : {
         "branch" : "main",
         "revision" : "1ddbb11f05dc1499f1da4c34c128c184477803ff"
-      }
-    },
-    {
-      "identity" : "networking",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/andrehaas2005/Networking.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "6b4b3b0172891b505ae38a5734c24db4f4110e54"
       }
     },
     {

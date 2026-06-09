@@ -7,7 +7,7 @@ final class ShortenerViewDataMapperMock: ShortenerViewDataMapperDelegate {
   
   var ui: [ShortenerUIModel] = []
   
-  func toUIModel(_ domain: Core.AliasResponse) -> NubankShortener.ShortenerUIModel {
+  func toUIModel(_ domain: AliasResponse) -> NubankShortener.ShortenerUIModel {
     ShortenerUIModel.fixed()
   }
   
@@ -19,7 +19,7 @@ final class ShortenerViewDataMapperMock: ShortenerViewDataMapperDelegate {
     url
   }
   
-  func toUIModels(_ list: [Core.AliasResponse]) -> [NubankShortener.ShortenerUIModel] {
+  func toUIModels(_ list: [AliasResponse]) -> [NubankShortener.ShortenerUIModel] {
     ui
   }
 }

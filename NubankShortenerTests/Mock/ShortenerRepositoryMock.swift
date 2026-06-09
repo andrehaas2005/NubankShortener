@@ -25,7 +25,7 @@ final class ShortenerRepositoryMock: LinkServiceRepository {
     saved.removeAll()
   }
   
-  func shorten(url: String, completion: @escaping (Result<Core.AliasResponse, Networking.NetworkError>) -> Void) {
+  func shorten(url: String, completion: @escaping (Result<AliasResponse, Networking.NetworkError>) -> Void) {
     let body = Body(url: url)
     client.post("https://full.com", body: body) { (result: Result<AliasResponse, NetworkError>) in
       switch result {
@@ -41,7 +41,7 @@ final class ShortenerRepositoryMock: LinkServiceRepository {
     }
   }
   
-  func fetchOriginal(alias: String, completion: @escaping (Result<Core.UrlResponse, Networking.NetworkError>) -> Void) {
+  func fetchOriginal(alias: String, completion: @escaping (Result<UrlResponse, Networking.NetworkError>) -> Void) {
     
   }
 }

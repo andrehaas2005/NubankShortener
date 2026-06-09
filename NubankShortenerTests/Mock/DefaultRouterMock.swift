@@ -14,21 +14,10 @@ final class DefaultRouterMock: Router {
   private(set) var showToastCall = 0
   
   
-  func openShortURL(_ alias: Core.AliasResponse) {
+  func openShortURL(_ alias: AliasResponse) {
     openShortURLCall += 1
     self.alias = alias
   }
-  
-//  func showError(message: String, in controller: UIViewController?) {
-//    showErrorCall += 1
-//    self.message = message
-//    self.controller = controller
-//  }
-  
-//  func showToast(in controller: UIViewController?) {
-//    showToastCall += 1
-//    self.controller = controller
-//  }
   
   func showToast(viewController: UIViewController, _ message: String) {
     showToastCall += 1

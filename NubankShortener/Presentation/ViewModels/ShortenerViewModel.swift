@@ -8,6 +8,10 @@ final class ShortenerViewModel: ShortenerViewModelProtocol {
   // MARK: - Dependencies
   private let repository: LinkServiceRepository
   private let adapter: ShortenerViewDataMapperDelegate
+  private var currentPage = 0
+  private let pageSize = 6
+  private var allLinks: [AliasResponse] = []
+  private var hasMorePages = true
   var screenState: Core.Bindable<ShortenerStates?> = .init(.idle)
   
   // MARK: - Init
@@ -19,13 +23,29 @@ final class ShortenerViewModel: ShortenerViewModelProtocol {
     self.adapter = adapter
     
     // initial load from repository
-    screenState.value = .success(repository.all())
+//    screenState.value = .success(repository.all())
+    loadNextPage()
   }
   
   // MARK: - Public actions
-  
-  /// Encurta a URL informada.
-  /// Valida, persiste e atualiza estado.
+  func loadNextPage() {
+    screenState.value = .loading(true)
+    guard hasMorePages else {
+      screenState.value = .loading(false)
+      return
+    }
+    let newItems = repository.all(page: currentPage, pageSize: pageSize)
+    
+    guard !newItems.isEmpty else {
+      hasMorePages = false
+      screenState.value = .loading(false)
+      return
+    }
+    allLinks.append(contentsOf: newItems)
+    currentPage += 1
+    screenState.value = .loading(false)
+    screenState.value = .success(allLinks)
+  }
   func shorten(_ urlString: String) {
     
     // validation
@@ -50,12 +70,14 @@ final class ShortenerViewModel: ShortenerViewModelProtocol {
   }
   
   private func handlerSuccess(_ alias: AliasResponse) {
-    self.repository.save(alias)
-    self.screenState.value = .success(self.repository.all())
+    resetPagination()
+    loadNextPage()
+//    self.screenState.value = .success(self.repository.all())
   }
   
-  /// Atualiza a lista com os dados do repositório.
-  func refresh() {
-    self.screenState.value = .success(self.repository.all())
+  private func resetPagination() {
+    currentPage = 0
+    allLinks = []
+    hasMorePages = true
   }
 }

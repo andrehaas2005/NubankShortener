@@ -136,6 +136,14 @@ extension ShortenerViewController: UITableViewDelegate {
     Theme.Size.cell
   }
   
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let position = scrollView.contentOffset.y
+    let threshold = scrollView.contentSize.height - scrollView.frame.height - 100
+    if position > threshold {
+      viewModel.loadNextPage()
+    }
+  }
+  
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let item = links[indexPath.row]
     delegate.openShortURL(item)
