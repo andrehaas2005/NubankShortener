@@ -26,7 +26,7 @@ final class ShortenerRepository: LinkServiceRepository {
     storage.removeAll()
   }
   
-  func shorten(url: String, completion: @escaping (Result<Core.AliasResponse, Networking.NetworkError>) -> Void) {
+  func shorten(url: String, completion: @escaping (Result<AliasResponse, Networking.NetworkError>) -> Void) {
     service.shorten(url: url) {
       completion($0)
     }
