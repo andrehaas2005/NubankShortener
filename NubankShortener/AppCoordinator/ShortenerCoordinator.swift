@@ -6,10 +6,14 @@ final class ShortenerCoordinator: ShortenerCoordinatorDelegate {
   
   let router: Router
   private let container: DIContainer
+  private let featureFlag: FeatureFlagProviderProtocol
   
-  init(router: Router, container: DIContainer = DIContainer()) {
+  init(router: Router,
+       container: DIContainer = DIContainer(),
+       featureFlag: FeatureFlagProviderProtocol) {
     self.router = router
     self.container = container
+    self.featureFlag = featureFlag
   }
   
   func start() {

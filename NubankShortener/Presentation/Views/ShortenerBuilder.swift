@@ -20,7 +20,8 @@ final class ShortenerBuilder: ModuleBuilderProtocol {
     
     let viewModel = ShortenerViewModel(
       repository: repository,
-      adapter: adapter
+      adapter: adapter,
+      analytics: container.makeAnalyticsProvider()
     )
     
     let viewController = ShortenerViewController(viewModel: viewModel, delegate: delegate)

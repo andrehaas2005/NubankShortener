@@ -3,13 +3,31 @@ import Core
 import Networking
 
 final class DIContainer {
-    
-    private let baseURL = URL(string: "https://url-shortener-server.onrender.com")!
-
-    // MARK: - Networking Layer
-    func makeNetworkClient() -> NetworkClientProtocol {
-        NetworkClient(baseURL: baseURL)
-    }
+  
+  private let baseURL = URL(string: "https://url-shortener-server.onrender.com")!
+  
+  private lazy var featureFlagProvider: FeatureFlagProviderProtocol = {
+    let remote = FeatureFlagRemoteProvider()
+    return FeatureFlagProvider(provider: remote)
+  }()
+  
+  private lazy var analytics: AnalyticsProviderProtocol = {
+    let remote = AnalyticsProviderRemote()
+    return AnalyticsProvider(provider: remote)
+  }()
+  
+  // MARK: - Networking Layer
+  func makeNetworkClient() -> NetworkClientProtocol {
+    NetworkClient(baseURL: baseURL)
+  }
+  
+  func makeAnalyticsProvider() -> AnalyticsProviderProtocol {
+    analytics
+  }
+  
+  func makeFeatureFlagProvider() -> FeatureFlagProviderProtocol {
+    featureFlagProvider
+  }
   
   func makeLocalStorage() -> LocalStorageProtocol {
     LocalStorage()

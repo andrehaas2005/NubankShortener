@@ -12,15 +12,18 @@ final class ShortenerViewModel: ShortenerViewModelProtocol {
   private let pageSize = 6
   private var allLinks: [AliasResponse] = []
   private var hasMorePages = true
+  private let analytics: AnalyticsProviderProtocol
   var screenState: Core.Bindable<ShortenerStates?> = .init(.idle)
   
   // MARK: - Init
   init(
     repository: LinkServiceRepository,
-    adapter: ShortenerViewDataMapperDelegate
+    adapter: ShortenerViewDataMapperDelegate,
+    analytics: AnalyticsProviderProtocol
   ) {
     self.repository = repository
     self.adapter = adapter
+    self.analytics = analytics
     
     // initial load from repository
 //    screenState.value = .success(repository.all())
@@ -47,10 +50,11 @@ final class ShortenerViewModel: ShortenerViewModelProtocol {
     screenState.value = .success(allLinks)
   }
   func shorten(_ urlString: String) {
-    
+    analytics.track(.actionButton(.actionButtonTapped))
     // validation
     guard Validators.isValidURL(urlString) else {
       screenState.value = .error("URL inválida. Verifique o formato.")
+      analytics.track(.invalidURL)
       return
     }
     
@@ -61,8 +65,10 @@ final class ShortenerViewModel: ShortenerViewModelProtocol {
         self.screenState.value = .loading(false)
         switch result {
         case .success(let alias):
+          self.analytics.track(.shortenSuccess(alias: alias.alias))
           self.handlerSuccess(alias)
         case .failure(let error):
+          self.analytics.track(.shortenFailed(reason: error.descript()))
           self.screenState.value = .error(error.descript())
         }
       }
